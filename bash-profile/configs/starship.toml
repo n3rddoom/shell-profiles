@@ -1,0 +1,69 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[╭─](#0c7bbb)$os$directory$git_branch$git_status
+[╰─](#0c7bbb)$character"""
+
+right_format = """$nodejs$php$memory_usage$cmd_duration$time"""
+
+add_newline = true
+
+[os]
+style = "bg:#0c7bbb fg:#ffffff"
+disabled = false
+format = "[ $symbol ]($style)"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = ""
+Debian = ""
+Arch = ""
+Macos = ""
+Linux = ""
+
+[directory]
+style = "bg:#8a62da fg:#ffffff"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncate_to_repo = true
+
+[git_branch]
+style = "bg:#191f48 fg:#43CCEA"
+symbol = " "
+format = "[ $symbol$branch ]($style)"
+
+[git_status]
+style = "bg:#191f48 fg:#B388FF"
+format = "[$all_status$ahead_behind ]($style)"
+
+[nodejs]
+symbol = " "
+style = "fg:#81ff91"
+format = "[ $symbol($version) ]($style)"
+
+[php]
+symbol = " "
+style = "fg:#81ff91"
+format = "[ $symbol($version) ]($style)"
+
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = " "
+style = "fg:#81ff91"
+format = "[ $symbol$ram ]($style)"
+
+[cmd_duration]
+min_time = 150
+style = "fg:#4b4b4b bg:#cecece"
+format = "[ ⌛ $duration ]($style)"
+
+[time]
+disabled = false
+time_format = "%T"
+style = "fg:#4b4b4b bg:#cecece"
+format = "[ ⏰ $time ]($style)"
+
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
