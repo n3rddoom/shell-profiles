@@ -154,10 +154,12 @@ HISTCONTROL=ignoredups:erasedups
 HISTSIZE=5000
 HISTFILESIZE=10000
 shopt -s histappend
-bind 'set show-all-if-ambiguous on'
-bind '"\t": menu-complete'
-bind '"\e[A": history-search-backward'
-bind '"\e[B": history-search-forward'
+if [[ $- == *i* ]]; then
+    bind 'set show-all-if-ambiguous on'
+    bind '"\t": menu-complete'
+    bind '"\e[A": history-search-backward'
+    bind '"\e[B": history-search-forward'
+fi
 # Ctrl+D delete-char-or-exit is bash's default behavior already.
 
 # ============================================================================
