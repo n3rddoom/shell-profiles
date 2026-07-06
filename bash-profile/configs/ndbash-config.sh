@@ -15,6 +15,7 @@ if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
 fi
 
 NDBASH_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+mkdir -p "$HOME/.local/bin"
 export PATH="$HOME/.local/bin:$PATH"
 
 # ============================================================================
@@ -68,7 +69,6 @@ _ndbash_install_eza() {
     tmp=$(mktemp -d)
     if curl -fsSL "https://github.com/eza-community/eza/releases/latest/download/eza_${target}.tar.gz" -o "$tmp/eza.tar.gz"; then
         tar -xzf "$tmp/eza.tar.gz" -C "$tmp"
-        mkdir -p "$HOME/.local/bin"
         mv "$tmp/eza" "$HOME/.local/bin/eza"
         chmod +x "$HOME/.local/bin/eza"
     else
